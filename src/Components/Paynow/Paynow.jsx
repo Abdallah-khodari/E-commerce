@@ -88,7 +88,7 @@ export default function Paynow() {
     }
     axios
       .post(
-        `https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${CartId}?url=http://localhost:5173`,
+        `https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${CartId}?url=http://https://e-commerce-three-lyart.vercel.app`,
         {
           shippingAddress: values,
         },
