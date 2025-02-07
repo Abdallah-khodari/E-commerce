@@ -1,9 +1,5 @@
 import './App.css';
-import {
-  createBrowserRouter,
-  RouterProvider,
-  createHashRouter,
-} from "react-router-dom";
+import {createBrowserRouter, RouterProvider,createHashRouter}from "react-router-dom";
 import Layout from './Components/Layout/Layout';
 import Register from './Components/Register/Register';
 import Login from './Components/Login/Login';

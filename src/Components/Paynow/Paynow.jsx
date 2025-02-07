@@ -26,7 +26,6 @@ export default function Paynow() {
       )
       .then((res) => {
         toast.success("Order Done", { position: "top-center" });
-        console.log(res);
         resetvalues();
         values.details = "";
         values.phone = "";
@@ -34,7 +33,6 @@ export default function Paynow() {
         return true;
       })
       .catch((error) => {
-        console.log(error);
         toast.error("An Error Occurred. Please Try Again", {
           position: "top-center",
         });
@@ -90,7 +88,7 @@ export default function Paynow() {
     }
     axios
       .post(
-        `https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${CartId}?url=http://localhost:5173`,
+        `https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${CartId}?url=https://e-commerce-three-lyart.vercel.app`,
         {
           shippingAddress: values,
         },
@@ -102,13 +100,13 @@ export default function Paynow() {
       )
       .then((res) => {
         window.location.href = res.data.session.url;
+      }).catch((error)=>{
+        toast.error('an error please try again',{position:'top-center'})
       })
-      .catch((error) => {
-        toast.error("An Error Occurred. Please Try Again", {
-          position: "top-center",
-        });
-      });
-  }
+      
+  
+  
+}
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
