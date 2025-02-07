@@ -1,5 +1,9 @@
 import './App.css';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import {
+  createBrowserRouter,
+  RouterProvider,
+  createHashRouter,
+} from "react-router-dom";
 import Layout from './Components/Layout/Layout';
 import Register from './Components/Register/Register';
 import Login from './Components/Login/Login';
@@ -21,7 +25,7 @@ import Catrgoryproducts from './Components/Categoryproducts/Categoryproducts';
 import ForgetPassword from './Components/ForgetPassword/ForgetPassword';
 import Resetcode from './Components/resetcode/Resetcode';
 import Wishlist from './Components/wishlist/Wishlist';
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: "",
     element: <Layout />,
@@ -37,12 +41,11 @@ const router = createBrowserRouter([
       { path: "Paynow", element: <Paynow /> },
       { path: "Brands", element: <Brands /> },
       { path: "allorders", element: <Allorders /> },
-      { path: "brandproducts/:id", element:<Brandproducts/>},
-      {path:"category/:id",element:<Catrgoryproducts/>},
-      {path:'forgetpassword',element:<ForgetPassword/>},
-      {path:'restcode',element:<Resetcode/>},
-      {path:'wishlist',element:<Wishlist/>}
-
+      { path: "brandproducts/:id", element: <Brandproducts /> },
+      { path: "category/:id", element: <Catrgoryproducts /> },
+      { path: "forgetpassword", element: <ForgetPassword /> },
+      { path: "restcode", element: <Resetcode /> },
+      { path: "wishlist", element: <Wishlist /> },
     ],
   },
 ]);
