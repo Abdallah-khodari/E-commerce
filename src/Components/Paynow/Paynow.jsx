@@ -99,11 +99,12 @@ export default function Paynow() {
         }
       )
       .then((res) => {
-        location.href = res.session.success_url
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+window.location.href =res. data.session.url;      })
+      console.log(res)
+     .catch((error) => {
+        toast.error("An Error Occurred. Please Try Again", {
+          position: "top-center",
+        });
   }
 
   return (
