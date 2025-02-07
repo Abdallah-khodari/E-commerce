@@ -36,7 +36,7 @@ const router = createHashRouter([
       { path: "//cart", element: <Cart /> },
       { path: "Paynow", element: <Paynow /> },
       { path: "Brands", element: <Brands /> },
-      { path: "done", element: <Allorders /> },
+      { path: "allorders", element: <Allorders /> },
       { path: "brandproducts/:id", element: <Brandproducts /> },
       { path: "category/:id", element: <Catrgoryproducts /> },
       { path: "forgetpassword", element: <ForgetPassword /> },
