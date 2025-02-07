@@ -99,8 +99,7 @@ export default function Paynow() {
         }
       )
       .then((res) => {
-window.location.href =res. data.session.url;      })
-      console.log(res)
+console.log(res)
      .catch((error) => {
         toast.error("An Error Occurred. Please Try Again", {
           position: "top-center",
