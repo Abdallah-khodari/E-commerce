@@ -5,19 +5,7 @@ import { Cartcontext } from "../../context/Cartcontext";
 import { CheckmarkIcon } from "react-hot-toast";
 
 export default function Allorders() {
-    const { products } = useContext(Cartcontext);
-    const result=jwtDecode(localStorage.getItem('token'))
-    function getuserorders(){
-        axios.get(`https://ecommerce.routemisr.com/api/v1/orders/user/${result.id}`)
-         .then((res)=>{
-         console.log(res);
-    
-         })
-         .catch(()=>{
-          console.log(error);
-          
-         });
-    }
+  
     
   return (
     <div className="min-h-screen bg-gray-100 dark:bg-gray-900 p-6 flex justify-center items-center">

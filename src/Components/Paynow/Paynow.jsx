@@ -101,11 +101,12 @@ export default function Paynow() {
         }
       )
       .then((res) => {
-        console.log(res);
-        location.href = res.data.session.url;
+        window.location.href = res.data.session.url;
       })
       .catch((error) => {
-        console.log(error);
+        toast.error("An Error Occurred. Please Try Again", {
+          position: "top-center",
+        });
       });
   }
 
