@@ -99,7 +99,7 @@ export default function Paynow() {
         }
       )
       .then((res) => {
-        location.href = https//e-commerce-three-lyart.vercel.app/allorders;
+        location.href = res.session.success_url
       })
       .catch((error) => {
         console.log(error);
