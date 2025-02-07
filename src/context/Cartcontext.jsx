@@ -45,6 +45,7 @@ export default function Cartcontextprovider({ children }) {
         setproducts(res.data.data.products);
         setCartId(res.data.cartId);
         setnumberofitems(res.data.numOfCartItems);
+        console.log(CartId)
 
         Getcartdetails();
         return true;
