@@ -88,7 +88,7 @@ export default function Paynow() {
     }
     axios
       .post(
-        `https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${CartId}?url=https://e-commerce-three-lyart.vercel.app`,
+        `https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${CartId}?url=https://e-commerce1-indol.vercel.app/`,
         {
           shippingAddress: values,
         },
@@ -100,9 +100,10 @@ export default function Paynow() {
       )
       .then((res) => {
         window.location.href = res.data.session.url;
-      }).catch((error)=>{
-        toast.error('an error please try again',{position:'top-center'})
       })
+      .catch((error) => {
+        toast.error("an error please try again", { position: "top-center" });
+      });
       
   
   
