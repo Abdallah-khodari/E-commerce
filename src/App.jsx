@@ -21,7 +21,7 @@ import Catrgoryproducts from './Components/Categoryproducts/Categoryproducts';
 import ForgetPassword from './Components/ForgetPassword/ForgetPassword';
 import Resetcode from './Components/resetcode/Resetcode';
 import Wishlist from './Components/wishlist/Wishlist';
-const router = createHashRouter([
+const router = createBrowserRouter([
   {
     path: "",
     element: <Layout />,
