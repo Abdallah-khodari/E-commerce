@@ -1,18 +1,15 @@
-import { useNavigate, NavLink, Navigate,Link } from "react-router-dom";
+import { useNavigate, NavLink, Link } from "react-router-dom";
 import freshcart from "../../assets/images/freshcart-logo.svg";
-import Login from "./../Login/Login";
 import { useContext, useState } from "react";
-import Categories from "./../Categories/Categories";
-import Products from "./../Products/Products";
 import { AuthContext } from "../../context/Authcontext";
 import Swal from "sweetalert2";
 import { Cartcontext } from "../../context/Cartcontext";
+
 export default function Navbar() {
-  const { numberofitems, Getcartdetails, Getwishlist, numberofwishitems } =
+  const { numberofitems, Getcartdetails, Getwishlist } =
     useContext(Cartcontext);
   const { token, settoken } = useContext(AuthContext);
   const navigate = useNavigate();
- 
 
   function logout() {
     Swal.fire({
@@ -25,12 +22,12 @@ export default function Navbar() {
         localStorage.removeItem("token");
         settoken(null);
         Swal.fire("Logged Out!", "", "success");
-      navigate('/login')
+        navigate("/login");
       }
     });
   }
-    const [isOpen, setIsOpen] = useState(false);
 
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <nav className="fixed top-0 left-0 w-full z-50 bg-gray-200 border-gray-200 dark:bg-gray-900 shadow-md">
@@ -66,9 +63,8 @@ export default function Navbar() {
           <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
             <li>
               <NavLink
-                data-bs-target="#navbarSupportedContent"
-                data-bs-toggle="collapse"
                 to="/home"
+                onClick={() => setIsOpen(false)}
                 className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
               >
                 Home
@@ -76,9 +72,8 @@ export default function Navbar() {
             </li>
             <li>
               <NavLink
-                data-bs-target="#navbarSupportedContent"
-                data-bs-toggle="collapse"
                 to="/categories"
+                onClick={() => setIsOpen(false)}
                 className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
               >
                 Categories
@@ -86,9 +81,8 @@ export default function Navbar() {
             </li>
             <li>
               <NavLink
-                data-bs-target="#navbarSupportedContent"
-                data-bs-toggle="collapse"
                 to="/Brands"
+                onClick={() => setIsOpen(false)}
                 className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
               >
                 Brands
@@ -96,7 +90,10 @@ export default function Navbar() {
             </li>
             {token && (
               <span
-                onClick={logout}
+                onClick={() => {
+                  logout();
+                  setIsOpen(false);
+                }}
                 className="cursor-pointer block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
               >
                 Logout
@@ -105,10 +102,11 @@ export default function Navbar() {
             {token && (
               <li>
                 <Link
-                  data-bs-target="#navbarSupportedContent"
-                  data-bs-toggle="collapse"
                   to="/wishlist"
-                  onClick={Getwishlist}
+                  onClick={() => {
+                    Getwishlist();
+                    setIsOpen(false);
+                  }}
                   className="block relative py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
                 >
                   Wish List
@@ -117,15 +115,14 @@ export default function Navbar() {
             )}
             <Link
               to="/cart"
-              data-bs-target="#navbarSupportedContent"
-              data-bs-toggle="collapse"
+              onClick={() => {
+                Getcartdetails();
+                setIsOpen(false);
+              }}
             >
               {token && (
-                <li
-                  onClick={Getcartdetails}
-                  className="cursor-pointer relative"
-                >
-                  <i className="fa-solid fa-cart-shopping text-xl hover:text-blue-500 duration-150"></i>{" "}
+                <li className="cursor-pointer relative">
+                  <i className="fa-solid fa-cart-shopping text-xl hover:text-blue-500 duration-150"></i>
                   <span className="text-black absolute bottom-3 right--1 rounded-sm">
                     {numberofitems}
                   </span>
@@ -135,9 +132,8 @@ export default function Navbar() {
             <li>
               {!token && (
                 <NavLink
-                  data-bs-target="#navbarSupportedContent"
-                  data-bs-toggle="collapse"
                   to="/login"
+                  onClick={() => setIsOpen(false)}
                   className="visible py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
                 >
                   Login
@@ -149,7 +145,4 @@ export default function Navbar() {
       </div>
     </nav>
   );
-};
-
-;
-
+}
