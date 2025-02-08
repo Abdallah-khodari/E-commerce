@@ -88,7 +88,7 @@ export default function Paynow() {
     }
     axios
       .post(
-        `https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${CartId}?url=https://e-commerce1-indol.vercel.app/`,
+        `https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${CartId}?url=https://e-commerce1-indol.vercel.app`,
         {
           shippingAddress: values,
         },
