@@ -23,7 +23,6 @@ Welcome to the E-Commerce Application! This platform offers users a seamless onl
 - **Frontend**:
   - [React](https://reactjs.org/): A JavaScript library for building user interfaces.
   - [React Router](https://reactrouter.com/): For handling in-app routing.
-  - [Redux](https://redux.js.org/): State management (if applicable).
   - [Styled Components](https://styled-components.com/) or [Tailwind CSS](https://tailwindcss.com/): For styling the application.
 
 
